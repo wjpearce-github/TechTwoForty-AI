@@ -14,6 +14,10 @@ def security_headers(response):
 def home():
     return jsonify(status="running", service="capstone-api")
 
+@app.route("/health")
+def health():
+    return jsonify(status="ok")
+
 if __name__ == "__main__":
     # Inside a container the app has to listen on every interface, or nothing
     # outside the container can reach it. Docker's -p decides what is exposed.
